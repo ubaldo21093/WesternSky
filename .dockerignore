@@ -1,0 +1,16 @@
+node_modules
+npm-debug.log
+dist
+.git
+.gitignore
+README.md
+.env
+.env.example
+.replit
+.config
+generated-icon.png
+.vscode
+.idea
+*.md
+.DS_Store
+coverage

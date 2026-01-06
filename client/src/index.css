@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Apple-inspired color scheme */
+  --background: 210 11% 98%; /* #F5F7FA */
+  --foreground: 210 11% 15%; /* #1C1C1E */
+  --muted: 210 11% 96%; /* #F2F2F7 */
+  --muted-foreground: 210 6% 46%; /* #8E8E93 */
+  --popover: 0 0% 100%;
+  --popover-foreground: 210 11% 15%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 11% 15%;
+  --border: 210 11% 89%; /* #E5E5EA */
+  --input: 210 11% 89%;
+  --primary: 207 90% 54%; /* #007AFF - iOS Blue */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 11% 96%;
+  --secondary-foreground: 210 11% 15%;
+  --accent: 210 11% 96%;
+  --accent-foreground: 210 11% 15%;
+  --destructive: 0 84% 60%; /* #FF3B30 - iOS Red */
+  --destructive-foreground: 0 0% 100%;
+  --ring: 207 90% 54%;
+  --radius: 0.75rem;
+
+  /* Additional Apple-inspired colors */
+  --ios-blue: 207 90% 54%; /* #007AFF */
+  --ios-green: 142 76% 47%; /* #34C759 */
+  --ios-orange: 25 100% 50%; /* #FF9500 */
+  --ios-red: 4 90% 58%; /* #FF3B30 */
+  --ios-purple: 250 43% 60%; /* #5856D6 */
+  --ios-gray-light: 210 11% 96%; /* #F2F2F7 */
+  --ios-gray-medium: 210 6% 46%; /* #8E8E93 */
+  --ios-gray-dark: 210 11% 15%; /* #1C1C1E */
+
+  /* Sidebar colors */
+  --sidebar-background: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Chart colors */
+  --chart-1: 207 90% 54%; /* iOS Blue */
+  --chart-2: 142 76% 47%; /* iOS Green */
+  --chart-3: 25 100% 50%; /* iOS Orange */
+  --chart-4: 4 90% 58%; /* iOS Red */
+  --chart-5: 250 43% 60%; /* iOS Purple */
+}
+
+.dark {
+  --background: 210 11% 4%; /* #0A0A0B */
+  --foreground: 0 0% 95%; /* #F2F2F7 */
+  --muted: 210 11% 10%; /* #1C1C1E */
+  --muted-foreground: 210 6% 54%; /* #8E8E93 */
+  --popover: 210 11% 4%;
+  --popover-foreground: 0 0% 95%;
+  --card: 210 11% 4%;
+  --card-foreground: 0 0% 95%;
+  --border: 210 11% 15%; /* #2C2C2E */
+  --input: 210 11% 15%;
+  --primary: 207 90% 54%; /* #007AFF */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 210 11% 10%;
+  --secondary-foreground: 0 0% 95%;
+  --accent: 210 11% 10%;
+  --accent-foreground: 0 0% 95%;
+  --destructive: 0 84% 60%; /* #FF3B30 */
+  --destructive-foreground: 0 0% 95%;
+  --ring: 207 90% 54%;
+
+  /* Dark mode Apple colors */
+  --ios-gray-light: 210 11% 10%; /* #1C1C1E */
+  --ios-gray-dark: 0 0% 95%; /* #F2F2F7 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Apple-inspired typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.003em;
+  }
+
+  /* Enhanced button styles */
+  .btn-ios {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Enhanced card styles */
+  .card-ios {
+    @apply bg-card text-card-foreground rounded-xl border shadow-sm;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Status indicators */
+  .status-high {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+
+  .status-medium {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+
+  .status-low {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .status-active {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .status-cancelled {
+    @apply bg-gray-100 text-gray-800 border-gray-200;
+  }
+
+  /* Apple-inspired scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* Enhanced focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Gradient backgrounds */
+  .gradient-ios {
+    background: linear-gradient(135deg, hsl(var(--ios-blue)), hsl(var(--ios-purple)));
+  }
+
+  /* Animation utilities */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* Apple-style shadows */
+  .shadow-apple {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-apple-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* iOS-style glass effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-effect {
+    background: rgba(28, 28, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-ios-blue {
+    color: hsl(var(--ios-blue));
+  }
+
+  .text-ios-green {
+    color: hsl(var(--ios-green));
+  }
+
+  .text-ios-orange {
+    color: hsl(var(--ios-orange));
+  }
+
+  .text-ios-red {
+    color: hsl(var(--ios-red));
+  }
+
+  .text-ios-purple {
+    color: hsl(var(--ios-purple));
+  }
+
+  .bg-ios-blue {
+    background-color: hsl(var(--ios-blue));
+  }
+
+  .bg-ios-green {
+    background-color: hsl(var(--ios-green));
+  }
+
+  .bg-ios-orange {
+    background-color: hsl(var(--ios-orange));
+  }
+
+  .bg-ios-red {
+    background-color: hsl(var(--ios-red));
+  }
+
+  .bg-ios-purple {
+    background-color: hsl(var(--ios-purple));
+  }
+
+  .border-ios-blue {
+    border-color: hsl(var(--ios-blue));
+  }
+
+  .border-ios-green {
+    border-color: hsl(var(--ios-green));
+  }
+
+  .border-ios-orange {
+    border-color: hsl(var(--ios-orange));
+  }
+
+  .border-ios-red {
+    border-color: hsl(var(--ios-red));
+  }
+
+  .border-ios-purple {
+    border-color: hsl(var(--ios-purple));
+  }
+}
